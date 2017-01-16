@@ -35,4 +35,8 @@ apt-get -y install git
 su -c "git clone https://github.com/danielondon/cpp-cross-platform.git" -s /bin/sh vagrant
 # installing dependencies with conan
 cd cpp-cross-platform
+# Checkout conan branch
+su -c "git fetch" -s /bin/sh vagrant
+su -c "git checkout adding_conan" -s /bin/sh vagrant
+# Installing Conan Dependencies
 conan install
