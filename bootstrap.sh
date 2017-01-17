@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 # Updating
 apt-get update
+# Adjust Time Zone to avoid Skew errors at building
+sudo timedatectl set-timezone Europe/Berlin
+
+#####################
+# Build Essential
+#####################
+#apt-get -y install build-essential 
 
 ############
 # CMAKE
@@ -32,12 +39,18 @@ pip install conan
 #installing git
 #apt-get -y install git
 
+# Cleaning workspace, in case of redeploying machine
+cd /vagrant
+./clean.sh
+
 # checking out project
 #su -c "git clone https://github.com/danielondon/cpp-cross-platform.git" -s /bin/sh vagrant
 # installing dependencies with conan
-cd /vagrant/cpp-cross-platform
+cd /vagrant/cpp-crossplatform
 # Checkout conan branch
 #su -c "git fetch" -s /bin/sh vagrant
 #su -c "git checkout adding_conan" -s /bin/sh vagrant
+
 # Installing Conan Dependencies
-conan install
+su -c "conan install" -s /bin/sh vagrant
+
