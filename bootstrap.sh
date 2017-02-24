@@ -50,7 +50,7 @@ cd /vagrant/cpp-crossplatform
 # Checkout conan branch
 #su -c "git fetch" -s /bin/sh vagrant
 #su -c "git checkout adding_conan" -s /bin/sh vagrant
-
+echo "INSTALLING CONAN"
 # Installing Conan Dependencies
-su -c "conan install" -s /bin/sh vagrant
+su - vagrant -c "conan install"
 

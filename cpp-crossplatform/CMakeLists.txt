@@ -6,6 +6,8 @@ MESSAGE("CMAKE_SOURCE_DIR ${CMAKE_SOURCE_DIR}")
 #CONAN
 if (${WIN32})
     execute_process(COMMAND ${CMAKE_SOURCE_DIR}/install.bat ${CMAKE_SOURCE_DIR})
+#else()
+#	execute_process(COMMAND ${CMAKE_SOURCE_DIR}/install.sh ${CMAKE_SOURCE_DIR})
 endif()
 
 if(EXISTS ${CMAKE_SOURCE_DIR}/conanbuildinfo.cmake)

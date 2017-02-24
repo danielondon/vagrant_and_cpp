@@ -4,8 +4,12 @@
 *Besides Ubuntu 14, comes with GCC 4.8 which supports C++ 11. Ubuntu 12, comes with GCC  4.6 which does not support C++ 11.
 * Also be careful when creating sh files in windows. Use the tool dos2unix to convert them 
 
-After machine is app, execute following commands:
+* vagrant up
+* vagrant ssh
+* cd /vagrant
+* ./build.sh
 
+# After machine is app, execute following commands:
 
 cd /vagrant/cpp-crossplatform
 mkdir build && cd build
