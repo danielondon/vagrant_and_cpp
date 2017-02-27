@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # Updating
+echo "Apt-get Update..."
 apt-get update
 # Adjust Time Zone to avoid Skew errors at building
+echo "Adjust Timezone..."
 sudo timedatectl set-timezone Europe/Berlin
 
 #####################
@@ -12,6 +14,7 @@ sudo timedatectl set-timezone Europe/Berlin
 ############
 # CMAKE
 ############
+echo "Installing CMake..."
 apt-get -y install cmake
 
 # Skip this installation because of license check
@@ -33,24 +36,33 @@ apt-get -y install cmake
 #make install
 
 #installing pip
+echo "Installing Python Pip..."
 apt-get -y install python-pip
 #installing conan
+echo "Installing Conan..."
 pip install conan
 #installing git
 #apt-get -y install git
 
 # Cleaning workspace, in case of redeploying machine
+echo "Cleaning Workspace..."
 cd /vagrant
 ./clean.sh
 
 # checking out project
 #su -c "git clone https://github.com/danielondon/cpp-cross-platform.git" -s /bin/sh vagrant
 # installing dependencies with conan
+pwd
 cd /vagrant/cpp-crossplatform
 # Checkout conan branch
 #su -c "git fetch" -s /bin/sh vagrant
 #su -c "git checkout adding_conan" -s /bin/sh vagrant
-echo "INSTALLING CONAN"
+echo "Installing Conan for project"
+pwd
+echo "$USER"
 # Installing Conan Dependencies
-su - vagrant -c "conan install"
+#su - vagrant -c "conan install"
+#conan install
+su -c "conan install" -s /bin/sh vagrant
+
 
